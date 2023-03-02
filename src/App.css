@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+.container{
+  background-color: cadetblue;
+  height: 300vh;
+  text-align: center;
+  padding: 5rem;
+  
+}
+.container label {
+  color: black;
+  font-style: oblique;
+  font-size: 19px;
+  font-weight: bold;
+}
+.container p {
+  color: red;
+  font-size: 19px;
+  font-weight: bold;
+}
+.blog{
+  border: 2px solid red;
+ height: 24rem;
+ width: 23rem;
+ margin-left: 26rem;
+}
