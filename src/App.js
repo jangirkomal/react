@@ -5,38 +5,53 @@ import {useState} from 'react';
 
 function App() {
 
-  const [name,setname]=useState("")
-  const [f_name,f_setname]=useState("")
-  const [m_name,m_setname]=useState("")
-  const [j_jaipur,j_setname]=useState("")
+  const [name,setname] = useState("");
+  const [email,setemail] = useState("");
+  const [number,setnumber] = useState("")
+  const [password,setpassword] = useState("");
+  const[confirmpassword,setconfirmpassword] = useState("");
+
+  const onSubmitForm =(e) =>{
+    e.preventDefault();
+    console.log(name,email,number,password,confirmpassword);
+    const data={
+      name:name,
+      email:email,
+      number:number,
+      password:password,
+      confirmpassword:confirmpassword
+    };
+const stringifyData = JSON.stringify(data);
+localStorage.setItem("data",stringifyData);
+console.log(">>>>>>>data",data)
+console.log(">>>>>>>>data",JSON.stringify(data));
+  };
+  
 
   return (
-   
 
-   <div class="container">
-    <div class="blog">
-    <p>my name is {name}   </p>
-    <div>
-     <label for="">name</label>
-      <input type="text" placeholder="enter your name"  onChange={(e)=>setname(e.target.value)}/>
-    </div>
-    <div >
-    <p>my f_name is {f_name}</p>
-      <label for="">f_name</label>
-      <input type="text" placeholder="enter your f_name" onChange={(e)=>f_setname(e.target.value)}/>
-    </div>
-    <div>
-    <p>my m_name is {m_name}</p>
-      <label for="">M_name</label>
-      <input type="text" placeholder="enter your M_name" onChange={(e)=>m_setname(e.target.value)}/>
-    </div>
-    <div>
-   <p> my address is {j_jaipur}</p>
-      <label for="">address</label>
-      <input type="text" placeholder="enter your address" onChange={(e)=>j_setname(e.target.value)}/>
-    </div>
-   </div>
+
+<div>
+  <center>
+  <h1>sign up </h1>
+  <form onSubmit={onSubmitForm}> 
+  <input type="text" placeholder=" enter your name" onChange={(e) =>setname(e.target.value)}/>
+  <br/>
+  <input type="email" placeholder=" enter your email" onChange={(e) =>setemail(e.target.value)}/>
+  <br/> 
+  <input type="number" placeholder=" enter your number" onChange={(e) =>setnumber(e.target.value)}/>
+  <br/>
+  <input type="password" placeholder="enter your password" onChange={(e) =>setpassword(e.target.value)}/>
+  <br/>
+  <input type="password" placeholder="confirm password" onChange={(e) =>setconfirmpassword(e.target.value)}/>
+  <br/>
+  <br/>
+  <button type="submit">submit</button>
+  </form>
+  </center>
+
 </div>
+
   );
 }
 
